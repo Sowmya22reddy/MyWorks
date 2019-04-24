@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <form [formGroup]="empEdit" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+
+          <b>Employee ID:</b><br>
+          <input name="empId" class="form-control" placeholder="Employee ID" type="text" formControlName="empId"
+            [ngClass]="{ 'is-invalid': submitted && f.empId.errors }">
+          <div *ngIf="submitted && f.empId.errors" class="invalid-feedback">
+            <div *ngIf="f.empId.errors.required">Employee ID is required</div>
+            <div *ngIf="f.empId.errors.minlength">Employee ID must have minlength 3</div>
+          </div>
+
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+
+          <b>Employee Name:</b><br>
+          <input name="empName" class="form-control" placeholder="Employee Name" type="text" formControlName="empName"
+            [ngClass]="{ 'is-invalid': submitted && f.empName.errors }">
+          <div *ngIf="submitted && f.empName?.errors" class="invalid-feedback">
+            <div *ngIf="f.empName.errors?.required">Employee Name is required</div>
+            <div *ngIf="f.empName.errors?.minlength">Employee Name must have minlength 6</div>
+          </div>
+
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <b>Designation:</b><br>
+          <input name="empDesignation" class="form-control" placeholder="Designation" type="text"
+            formControlName="empDesignation" [ngClass]="{ 'is-invalid': submitted && f.prodPrice?.errors }">
+          <div *ngIf="submitted && f.empDesignation?.errors" class="invalid-feedback">
+            <div *ngIf="f.empDesignation.errors?.required">Employee designation is required</div>
+
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <b>Employee Address:</b><br>
+          <input name="empAddress" class="form-control" placeholder=Address type="text" formControlName="empAddress"
+            [ngClass]="{ 'is-invalid': submitted && f.empAddress.errors }">
+          <div *ngIf="submitted && f.empAddress.errors" class="invalid-feedback">
+            <div *ngIf="f.empAddress.errors.required">Emp Address is required</div>
+            <!-- <div *ngIf="f.empAddress.errors.minlength">Emp Address must have minlength 10</div>
+              <div *ngIf="f.empAddress.errors.maxlength">Emp Address should not exceed 50 chars</div> -->
+          </div>
+        </div>
+
+        <br>
+
+
+        <button type="submit" id="loginSubmit" class="btn btn-success loginFormElement">Update
+          Employee</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
